@@ -48,4 +48,8 @@ This tool is intended for **educational and ethical hacking purposes only**. The
 
 - **Anonymous-Silva**
 - GitHub: [Anonymous-Silva](https://github.com/Anonymous-Silva)
+# Warning
+I'm not responsible for any misuse or damage caused by this program. Use this tool at your own risk!
+
+❤️ Support me: (0x1432Dacd9aDFEc89b712fCA283c5Df5643F13ff8)
 
