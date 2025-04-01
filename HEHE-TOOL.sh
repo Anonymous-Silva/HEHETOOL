@@ -1,24 +1,54 @@
 #!/bin/bash
 
-# Cores para o terminal
+# Cores
 RED='\033[31;1m'
-CYAN='\033[36;1m'
-WHITE='\033[37;1m'
-NC='\033[0m' # Reset de cor
+GREEN='\033[32;1m'
+YELLOW='\033[33;1m'
+BLUE='\033[34;1m'
+NC='\033[0m'
+
+# Criar diretório Tools se não existir
+if [ ! -d "Tools" ]; then
+    mkdir Tools
+fi
+
+# Função para atualizar e instalar pacotes necessários
+instalar_dependencias() {
+    echo -e "${YELLOW}Instalando dependências...${NC}"
+    sleep 2
+    apt update && apt upgrade -y
+    pkg install git python python3 curl -y
+    echo -e "${GREEN}Instalação concluída.${NC}"
+}
+
+# Função para baixar e executar uma ferramenta
+baixar_e_executar() {
+    local nome=$1
+    local repo=$2
+    local comando=$3
+
+    echo -e "${YELLOW}Instalando ${nome}...${NC}"
+    sleep 2
+    cd Tools
+    git clone "$repo"
+    cd "$(basename "$repo" .git)"
+    eval "$comando"
+}
 
 # Exibir menu
 while true; do
     clear
     echo -e "${RED}
-    ███████╗██╗  ██╗███████╗██╗  ██╗   ████████╗ ██████╗  ██████╗ ██╗
-    ██╔════╝██║  ██║██╔════╝██║  ██║   ╚══██╔══╝██╔═══██╗██╔══██╗██║
-    ███████╗███████║█████╗  ███████║      ██║   ██║     ██║██║    ██║██║
-    ██╔════╝██╔══██║██╔══╝  ██╔══██║      ██║   ██║     ██║██║    ██║██║
+    ███████╗██╗  ██╗███████╗██╗  ██╗    ████████╗ ██████╗  ██████╗ ██╗
+    ██╔════╝██║  ██║██╔════╝██║  ██║    ╚══██╔══╝██╔═══██╗██╔═══██╗██║
+    ███████╗███████║█████╗  ███████║       ██║   ██║   ██║██║   ██║██║
+    ██║╚════██╔══██║██╔══╝  ██╔══██║       ██║   ██║   ██║██║   ██║██║
     ███████║██║  ██║███████╗██║  ██║       ██║   ╚██████╔╝╚██████╔╝███████╗
-    ╚══════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝       ╚═╝    ╚═════╝   ╚═════╝ ╚══════╝ v4
+    ╚══════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝       ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝ v1
      Coded by Anonymous-Silva
      github: https://github.com/Anonymous-Silva
 ${NC}"
+
 
     echo -e "${WHITE}[1]${CYAN} Instalar Dependências e Atualizar"
     echo -e "${WHITE}[2]${CYAN} Phishing Tool"
@@ -153,6 +183,75 @@ ${NC}"
             cd RED_HAWK
             php rhawk.php
             ;;
+            
+
+	13)
+	    clear
+	    echo -e "${CYAN} Instalando TigerVirus...${NC}"
+	    cd Tools
+	    git clone https://github.com/Devil-Tigers/TigerVirus
+       	    apt update
+	    apt upgrade -y
+            pkg install git -y
+	    cd TigerVirus
+	    bash app.sh
+	    ;;
+	
+	14)
+	    clear	
+	    echo -e "${CYAN} Instalando info-site...${NC}"
+	    cd Tools
+	    pkg install curl -y
+	    upgrade -y
+	    pkg install git -y
+	    git clone https://github.com/king-hacking/info-site.git
+	    cd info-site
+	    bash info.sh
+	    ;;
+	    
+	15)
+	    clear
+	    echo -e "${CYAN} Instalando BadMod...${NC}"
+	    sleep 3
+	    cd Tools
+	    sudo apt-get update
+	    sudo apt-get install php -y
+	    sudo apt-get install php-curl -y
+	    git clone https://github.com/MrSqar-Ye/BadMod.git
+	    cd BadMod
+	    chmod u+x INSTALL
+	    chmod u+x BadMod.php
+	    sudo php BadMod.php
+	     ;;
+	
+	16)
+	     clear
+	    echo -e "${CYAN} Instalando Facebash...${NC}"
+	    sleep 3
+	    cd Tools
+	    git clone https://github.com/fu8uk1/facebash
+	    cd facebash
+	    bash install.sh
+	    chmod +x facebash.sh
+	    tor
+	    sudo ./facebash.sh
+	     ;;
+	
+	17)
+	    clear
+	    echo -e "${CYAN} Instalando DARKARMY...${NC}"
+	    sleep 3
+	    cd Tools
+	    pkg install git -y
+	    pkg install python2 -y
+	    apt install git -y
+	    apt install python2 -y
+	    git clone https://github.com/D4RK-4RMY/DARKARMY
+	    cd DARKARMY
+	    chmod +x darkarmy.py
+	    python2 darkarmy.py
+	    	;;
+
         18)
             clear
             echo -e "${CYAN} Instalando AUTO-IP-CHANGER...${NC}"
